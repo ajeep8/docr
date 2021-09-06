@@ -13,7 +13,7 @@ saveMd <- function(filename, content) {
   pathlst <- strsplit(rstudioapi::documentPath(),split='/')
   pathlst[[1]][length(pathlst[[1]])] <- filename
   subpath=paste(pathlst[[1]],collapse = '/')
-  write(content, paste(subpath,".md"))
+  write(content, paste(trimws(subpath),".md"))
 }
 
 #' get part of content
