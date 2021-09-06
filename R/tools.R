@@ -43,9 +43,33 @@ getPart <- function(content,startText="", endText="", withStart=TRUE) {
 }
 
 
-
-
-
+#' remove part all in content
+#'
+#' @param content all contents
+#' @param startText startText
+#' @param endText endText
+#'
+#' @return text
+#' @export
+#'
+rmParts <- function(content, startText="\\*\\*示例\\*\\*", endText="### ") {
+  library(stringr)
+  ss=str_locate(content, startText)
+  while(!is.na(ss[1])) {
+    res1 <- str_sub(content,0,ss[1]-1)
+    ee=str_locate(str_sub(content,ss[1],-1),endText)
+    res2=''
+    if (!is.na(ee[1])) {
+      res2 <- str_sub(content, ss[1]+ee[1]-2, -1)
+      content <- paste(res1,res2,sep='')
+    } else {
+      content <- res1
+      break
+    }
+    ss=str_locate(content, startText)
+  }
+  content
+}
 
 
 

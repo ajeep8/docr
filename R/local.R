@@ -12,7 +12,7 @@ embedMd <- function(subfile, addlevel=0){
 	  titlehead = strrep("#", addlevel+1)
 	  res=gsub("^#", titlehead, res)
 	}
-  cat(unlist(res), sep='\n')
+	paste(res,collapse='\n')
 }
 
 #' embed a .Rmd file, and change title level
@@ -29,5 +29,5 @@ embedRmd <- function(subfile, addlevel=0){
 	  titlehead = paste0(strrep("#", addlevel+1)," ")
     res <- gsub("# ", titlehead, res)
 	}
-  cat(unlist(res), sep = '\n')
+	paste(res,collapse='\n')
 }
