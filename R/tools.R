@@ -6,7 +6,7 @@
 #' @return text
 #' @export
 #'
-savemd <- function(filename, content) {
+saveMd <- function(filename, content) {
   fnlst <- strsplit(filename, split='/')
   filename= fnlst[[1]][length(fnlst[[1]])]
 
