@@ -31,15 +31,15 @@ getPart <- function(content,startText="", endText="", withStart=TRUE) {
 	if (startText=="") {
 		ss <- 1
 	} else {
-		ss <- str_locate(res,startText)[1]
+		ss <- str_locate(content,startText)[1]
 	}
 	if (!withStart) {ss=ss+nchar(startText)}
 	if (endText=="") {
 		ee=nchar(content)
 	} else {
-		ee=str_locate(res,endText)[1]-1
+		ee=str_locate(content,endText)[1]-1
 	}
-	cat(str_sub(content,ss,ee))
+	str_sub(content,ss,ee)
 }
 
 
