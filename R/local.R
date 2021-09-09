@@ -7,7 +7,7 @@
 #' @export
 #'
 embedMd <- function(subfile, addlevel=0){
-	res <- knitr::knit_child(subfile, quiet = TRUE)
+	res <- readLines(subfile)
 
 	if (addlevel != 0) {
 	  titlehead = strrep("#", addlevel+1)
