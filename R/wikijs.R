@@ -1,16 +1,29 @@
 #' Login wiki.js
 #'
-#' @param url wiki.js graphql url
-#' @param token user token
+#' get your user_token from https://your_wiki.js_url/graphql:
+#' copy the following codes to graphql and get the long jwt user_token:
+#' mutation {
+#'   authentication {
+#'     login (
+#'       username: "your username(email)"
+#'       password: "your password"
+#'       strategy: "local"
+#'     ) {jwt}
+#'   }
+#' }
 #'
-#' @return text
+#' @param graphqlUrl wiki.js graphql url
+#' @param schemaUrl wiki.js graphql schema url
+#' @param userToken user_token
+#'
+#' @return the connect con
 #' @export
 #'
 wikijsLogin <- function(userToken, graphqlUrl, schemaUrl) {
-	library("ghql")
+  library("ghql")
 
-	token <- userToken
-	con <- GraphqlClient$new(
+  token <- userToken
+  con <- GraphqlClient$new(
     url = graphqlUrl,
     headers = list(Authorization = paste0("Bearer ", token))
   )
@@ -25,7 +38,7 @@ con
 #' Fetch .md file from wiki.js by graphQL interface
 #'
 #' @param con connect to graphQL
-#' @param Id pageId
+#' @param Id the ID in the page history top-right
 #'
 #' @return text
 #' @export
@@ -53,5 +66,4 @@ query{
   content <- y$data$pages$single$content
 
   list(filename, content)
-
 }

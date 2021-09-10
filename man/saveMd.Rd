@@ -4,12 +4,12 @@
 \alias{saveMd}
 \title{Save fetched .md file}
 \usage{
-saveMd(filename, content)
+saveMd(wikiPath, content)
 }
 \arguments{
-\item{filename}{filename}
+\item{wikiPath}{wiki.js page path}
 
-\item{content}{filecontent}
+\item{content}{the page content}
 }
 \value{
 text

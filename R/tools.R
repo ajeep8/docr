@@ -1,13 +1,13 @@
 #' Save fetched .md file
 #'
-#' @param filename filename
-#' @param content filecontent
+#' @param wikiPath wiki.js page path
+#' @param content the page content
 #'
 #' @return text
 #' @export
 #'
-saveMd <- function(filename, content) {
-  fnlst <- strsplit(filename, split='/')
+saveMd <- function(wikiPath, content) {
+  fnlst <- strsplit(wikiPath, split='/')
   filename= fnlst[[1]][length(fnlst[[1]])]
 
   pathlst <- strsplit(rstudioapi::documentPath(),split='/')
@@ -70,7 +70,4 @@ rmParts <- function(content, startText="\\*\\*示例\\*\\*", endText="### ") {
   }
   content
 }
-
-
-
 

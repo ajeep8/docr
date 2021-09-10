@@ -7,13 +7,25 @@
 wikijsLogin(userToken, graphqlUrl, schemaUrl)
 }
 \arguments{
-\item{url}{wiki.js graphql url}
+\item{userToken}{user_token}
 
-\item{token}{user token}
+\item{graphqlUrl}{wiki.js graphql url}
+
+\item{schemaUrl}{wiki.js graphql schema url}
 }
 \value{
-text
+the connect con
 }
 \description{
-Login wiki.js
+get your user_token from https://your_wiki.js_url/graphql:
+copy the following codes to graphql and get the long jwt user_token:
+mutation {
+  authentication {
+    login (
+      username: "your username(email)"
+      password: "your password"
+      strategy: "local"
+    ) {jwt}
+  }
+}
 }

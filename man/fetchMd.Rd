@@ -9,7 +9,7 @@ fetchMd(con, Id)
 \arguments{
 \item{con}{connect to graphQL}
 
-\item{Id}{pageId}
+\item{Id}{the ID in the page history top-right}
 }
 \value{
 text
